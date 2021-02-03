@@ -1,0 +1,23 @@
+{
+    "items": [
+        {
+            "rel": "canonical",
+            "href": "https://imaginecx--tst2.custhelp.com/services/rest/connect/v1.3/contacts/488/emails/0"
+        }
+    ],
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://imaginecx--tst2.custhelp.com/services/rest/connect/v1.3/contacts/488/emails"
+        },
+        {
+            "rel": "canonical",
+            "href": "https://imaginecx--tst2.custhelp.com/services/rest/connect/v1.3/contacts/488/emails"
+        },
+        {
+            "rel": "describedby",
+            "href": "https://imaginecx--tst2.custhelp.com/services/rest/connect/v1.3/metadata-catalog/contacts/emails",
+            "mediaType": "application/schema+json"
+        }
+    ]
+}
