@@ -2,17 +2,26 @@
 
 include("db.php");
 
-if (isset($_POST['save_task'])){
+if (isset($_POST['save_employee'])){
 
-    $title = $_POST['title'];
+    $name = $_POST['name'];
 
     $description = $_POST['description'];
+
+    $city = $_POST['city'];
+
+    $email = $_POST['email'];
+
+    $phone = $_POST['phone'];
+
+
+
 
     #echo $title;
 
     #echo $description;
 
-    $query = "INSERT INTO task(title, description) VALUES ('$title', '$description')";
+    $query = "INSERT INTO employees(name, description, city, email, phone) VALUES ('$name', '$description', '$city', '$email', '$phone' )";
 
     $result = mysqli_query($conn, $query);
 
@@ -22,7 +31,7 @@ if (isset($_POST['save_task'])){
 
     }
 
-    $_SESSION['message'] = 'Task saved succesfully';
+    $_SESSION['message'] = 'Employee saved succesfully';
     $_SESSION['message_type'] = 'success';
 
     header("Location: index.php");

@@ -1,3 +1,24 @@
+<div class="container">
+        <h3>Employees personal data</h3>
+        <table class="table table-sm table-hover table-dark">
+            <thead>
+                <tr>
+                    <td>{id}</td>
+                    <th>Name</th>
+                    <th>createdTime</th>
+                    <th>City</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>
+                </tr>
+            </thead>
+           
+            <tbody>
+                
+                <?php mostrarDatos(); ?>
+            </tbody>
+        </table>
+    </div>
   <!--SCRIPST-->
   <!-- jQuery library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

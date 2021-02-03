@@ -2,24 +2,32 @@
     include("db.php");
     if(isset($_GET['id'])){
         $id = $_GET['id'];
-        $query = "SELECT * FROM task WHERE id=$id";
+        $query = "SELECT * FROM employees WHERE id=$id";
         $result =  mysqli_query($conn, $query);
         if (mysqli_num_rows($result) == 1){
             $row = mysqli_fetch_array($result);
-            $title = $row['title'];
-            $description = $row['description'];           
+            $name = $row['name'];
+            $description = $row['description']; 
+            $city = $row['city'];
+            $email = $row['email'];
+            $phone = $row['phone'];  
+            $name = $row['id'];       
         }
     }
 
     if (isset($_POST['update'])){
         $id = $_GET['id'];
-        $title = $_POST['title'];
+        $name = $_POST['name'];
         $description = $_POST['description'];
+        $city = $_POST['city'];
+        $email = $_POST['email'];
+        $phone = $_POST['phone'];
+       
 
-        $query = "UPDATE task set title = '$title', description='$description' WHERE id = $id;" ; 
+        $query = "UPDATE employees set title = '$name', description='$description' WHERE id = $id;" ; 
         mysqli_query($conn, $query);
 
-        $_SESSION['message'] = 'Task update success';
+        $_SESSION['message'] = 'Employee update success';
         $_SESSION['message_type'] = 'warning';
         header("Location: index.php");
     }
@@ -33,15 +41,27 @@
             <div ckass="col-md-4 mx-auto">
                 <div class="card card-body">
                     <form action="edit.php?id=<?php echo $_GET['id']; ?>" method="POST">
-                        <div class="<div class="form-group">
+                        <div class="<div class="class="form-group">
                           
-                          <input type="text" name="title"  value="<?php echo $title; ?>" 
-                          class="form-control" placeholder="Update Title">
+                          <input type="text" name="name"  value="<?php echo $name; ?>" 
+                          class="form-control" placeholder="Update Employee">
                          
                         </div>"
                         <div class="form group">
                             <textarea name="description" rows="2" class="form-control" placeholder="Update
                              Description"><?php echo $description; ?></textarea>
+                        </div>
+                        <div class="form group">
+                            <textarea name="city" class="form-control" placeholder="Update
+                             City"><?php echo $city; ?></textarea>
+                        </div>
+                        <div class="form group">
+                            <textarea name="email" class="form-control" placeholder="Update
+                             Email"><?php echo $email; ?></textarea>
+                             <div class="form group">
+                            <textarea name="phone" class="form-control" placeholder="Update
+                             Phone"><?php echo $phone; ?></textarea>
+                        </div>
                         </div>
                         <button class="btn btn-success" name="update">
                             Update
