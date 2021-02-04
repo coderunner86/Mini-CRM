@@ -1,2 +1,2 @@
 # icx_asessment
-Consultar, crear, actualizar y borrar contactos (CRM-CRUD)
+A CRM-CRUD simple web app. Developed for the selection process of ImagineCX.
