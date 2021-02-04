@@ -2,17 +2,15 @@
 
     include("db.php");
 
-    if(isset($_GET['id'])){
+    if (isset($_GET['id'])) {
         $id = $_GET['id'];
         $query = "DELETE FROM employees WHERE id = $id";
         $result = mysqli_query($conn, $query);
-        if (!$result){
+        if (!$result) {
                 die("Query failed");
         }
 
         $_SESSION['message'] = 'Employee removed successfully';
         $_SESSION['message_type'] = 'danger';
         header("Location: index.php");
-    }   
-
-?>
+    }

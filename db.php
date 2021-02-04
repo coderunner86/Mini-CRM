@@ -3,13 +3,8 @@
 session_start();
 
 $conn = mysqli_connect(
-    'localhost',
+    'http://ec2-54-94-152-50.sa-east-1.compute.amazonaws.com/',
     'root',
-    '',
-    'php_mysql_crud'
+    '123456',
+    'icx_contacts'
 );
-
-#if (isset($conn)) {
-#    echo "db IS CONNECTECT";
-#}
-?>
