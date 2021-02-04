@@ -16,3 +16,7 @@ A CRM-CRUD simple web app. Developed for the selection process of ImagineCX. Thi
 2. Once you have the EC2 instance in execution, autenticate throught SSH and run the bash script allowed in this repository. WARNING: You must have how to edit the apache configuration file. 
 3. Install an FTP application to upload files into the directory var/www/html.
 
+### Access to web App
+
+http://ec2-54-94-152-50.sa-east-1.compute.amazonaws.com/index.php
+
