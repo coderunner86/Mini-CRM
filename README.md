@@ -18,5 +18,5 @@ A CRM-CRUD simple web app. Developed for the selection process of ImagineCX. Thi
 
 ### Access to web App
 
-http://ec2-54-94-152-50.sa-east-1.compute.amazonaws.com/index.php
+http://icxcrmtest.bitnamiapp.com/php_crud_mysql/index.php
 
