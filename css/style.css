@@ -1,18 +1,7 @@
-.container-brand {
-    max-width: 1130px !important;
-    margin: 0 auto;
-    display: table;
-    margin-top: 0px;
-    padding-top: 7px;
-    width: inherit;
-    padding-left: 20px;
-    padding-right: 20px;
-    float:left;
-}
+.logo{display:inline-block;width:168px;position:relative;}
 
-.logo {
-    display: inline-block;
-    width: 10px; height: 10px;
-    position: relative;
-}
+.navbar navbar-dark bg-dark{height:72px;background:#222;width:100%;position:relative;}
+@media screen and (min-width: 600px){
+    .a{display:none;}
 
+}

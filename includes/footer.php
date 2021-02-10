@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container"">
   <h3>Employees personal data table section</h3>
   <table class="table table-sm table-hover table-dark">
     <thead>

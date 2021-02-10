@@ -4,8 +4,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 ?>
 <?php
-include("database/db.php");
-$id = $_GET['id'];
+include("db.php");
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $query = "SELECT * FROM employees WHERE id=$id";
@@ -23,25 +22,23 @@ if (isset($_GET['id'])) {
     }
 }
 if (isset($_POST['update'])) {
+    $id = $_GET['id'];
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
     $city = $_POST['city'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
     $description = $_POST['description'];
+    $id = $_POST['id'];
     $id_remote = $_POST['id_remote'];
-    $query = "UPDATE employees set firstname = '$firstname', lastname='$lastname', city='$city', email='$email', phone='$phone', description='$description', id = '$id', id_remote = '$id_remote';";
-    mysqli_query($conn, $query);
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $city = $_POST['city'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $description = $_POST['description'];
-    $my_array_data = array("name" => array("first" => $firstname, "last" => $lastname), "address" => array("city" => $city), "emails" => array("address" => $email, "addressType" => array("id" => 0)), "phones" => array("number" => $phone, "phoneType" => array("id" => 0)));
+    $fn = $firstname;
+    $ln = $lastname;
+    $ci = $city;
+    $em = $email;
+    $ph = $phone;
+    $my_array_data = array("name" => array("first" => $fn, "last" => $ln), "address" => array("city" => $ci), "emails" => array("address" => $em, "addressType" => array("id" => 0)), "phones" => array("number" => $ph, "phoneType" => array("id" => 0)));
     $data = json_encode($my_array_data); 
-    $value = $id;
-    $url = "https://ICXCandidate:Welcome2021@imaginecx--tst2.custhelp.com/services/rest/connect/v1.3/contacts/$value"; 
+    $url = 'https://ICXCandidate:Welcome2021@imaginecx--tst2.custhelp.com/services/rest/connect/v1.3/contacts/635';
     $headers = array('X-HTTP-Method-Override: POST');
     $headers = array('Content-Type: application/json');
     $curl = curl_init();
@@ -53,47 +50,21 @@ if (isset($_POST['update'])) {
     $response = curl_exec($curl);
     curl_close($curl);
     echo $response;
-    echo "<table>
-                <tr>
-                <tr>UPDATE EMPLOYEE</tr>
-                <td>DATA:</td>
-                <td>$data</td>
-                </tr><tr>
-                <td>ID<td>
-                <td>$value</td>
-                </tr>
-            </table>";
+    $query = "UPDATE employees set firstname = '$firstname', description='$description', lastname='$lastname', city='$city', email='$email', phone='$phone';";
+    mysqli_query($conn, $query);
     $_SESSION['message'] = 'Employee update success';
     $_SESSION['message_type'] = 'warning';
     header("Location: index.php");
 }
 ?>
 <?php include("includes/header.php") ?>
-<div class="container">
-        <table class="table table-hover table-bordered">
-            <div id="id_employee">
-                <text type="number" name="id" min="1" max="5000" value="<?php echo (isset($_GET['id']) ? $_GET['id'] : '') ?>"  />
-                    <?php
-                    $value = htmlspecialchars($_GET['id']);
-                    $url = "https://ICXCandidate:Welcome2021@imaginecx--tst2.custhelp.com/services/rest/connect/v1.3/contacts/$value"; 
-                    echo "<table>
-                        <tr>
-                        <tr>UPDATE EMPLOYEE</tr>
-                        <td>ID:</td>
-                        <td>$value</td>
-                        </tr><tr>
-                        <td>PATH<td>
-                        <td>$url</td>
-                        </tr>               
-                    </table>";
-                    ?>
-            </div>
-        </table>
+<div class="container p-6">
     <div class="row">
         <div ckass="col-md-6 mx-auto">
             <div class="card card-body">
                 <form action="edit.php?id=<?php echo $_GET['id']; ?>" method="POST">
                 <div class="form group">
+                            <input name="id" class="form-control" placeholder="ID"><?php echo $id; ?></input>
                         </div>
                     <div class="<div class=" class="form-group">
                         <input type="text" name="firstname" value="<?php echo $firstname; ?>" class="form-control" placeholder="Update Employee">
@@ -120,6 +91,19 @@ if (isset($_POST['update'])) {
                     <button class="btn btn-warning" name="update">
                         Update
                     </button>
+                    <div class="card card-body">
+
+                        <div id="id_employee">
+                            <h3><strong>Last employee ID created:</strong></h3>
+                            <?php
+                            echo "{$id_remote}";
+                            ?>
+                            <h3><strong>Employee ID updated:</strong></h3>
+                            <?
+                            $value = "https://ICXCandidate:Welcome2021@imaginecx--tst2.custhelp.com/services/rest/connect/v1.3/contacts/{id}>"; 
+                            echo "{$value}"; ?>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>

@@ -8,9 +8,9 @@ function mostrarDatos()
     $data = curl_init($endpoint);
 
     $employees = autentication($data, $endpoint_username, $endpoint_password);
-
+   
     foreach ($employees->items as $employee) {
-
+        
         $createdTime = strtotime($employee->createdTime);
         $createdTime = date('d-m-Y', $createdTime);
         echo "<tr>
@@ -39,6 +39,6 @@ function mostrarDatos()
         $contact_info3 = autentication($data_info3, $endpoint_username, $endpoint_password);
         echo "<td>{$contact_info3->number}</td>";
     }
-}
 
+}
 ?>

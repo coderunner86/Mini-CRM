@@ -1,9 +1,9 @@
-<?php include("db.php") ?>
+<?php include("database/db.php") ?>
 <?php include("mostrarDatos.php") ?>
+<?php include("post_info.php") ?>
 <?php include("includes/header.php") ?>
-
-<div class="contaimer p-4">
-    <div class="row">
+<div class="container p-4">
+    <div class="container">
         <div class="col-md-4">
             <?php if (isset($_SESSION['message'])) { ?>
                 <div class="alert alert-<?= $_SESSION['message_type']; ?> alert-dismissible fade show" role="alert">
@@ -25,16 +25,36 @@
                         <input type="number" name="phone" class="form-control" placeholder="Phone" autofocus>
                         <textarea name="description" rows="2" class="form-control" placeholder="About"></textarea>
                     </div>
-                    <input type="submit" class="btn btn-success btn-block" name="save_employee" value="Save Employee">
+                    <input type="submit" class="btn btn-success btn-block" name="save" value="Save Employee" action="save.php">
                 </form>
+        
+                <div class="card card-body">
+               
+                    <div >
+                        <h3><strong>Last employee ID created:</strong></h3>
+                        <?php
+                        $endpoint_username = 'ICXCandidate';
+                        $endpoint_password = 'Welcome2021';
+                        $endpoint = "https://ICXCandidate:Welcome2021@imaginecx--tst2.custhelp.com/services/rest/connect/v1.3/contacts";
+                        //$endpoint='https://ICXCandidate:Welcome2021@imaginecx--tst2.custhelp.com/services/rest/connect/v1.3/contacts/?q=id';
+                        $data = curl_init($endpoint);
+                        $employees = autentication($data, $endpoint_username, $endpoint_password);
+                        foreach ($employees->items as $employee) {
+                        }
+                        $id_employee = $employee->id;
+                        echo "{$id_employee}";
+                        ?>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-md-8">
-            <table class="table-responsive">
-                <thead>
+    </div>
+        <div class="container">
+            <table class="table table-hover table-bordered">
+                <thead class="thead-dark">
                     <tr>
-                        <th>Employee name </th>
-                        <th>Surname</th>
+                        <th>Name</th>
+                        <th>Lastname</th>
                         <th>Created at</th>
                         <th>City</th>
                         <th>Email</th>
@@ -47,7 +67,6 @@
                     <?php
                     $query = "SELECT * FROM employees";
                     $result_tasks = mysqli_query($conn, $query);
-
                     while ($row = mysqli_fetch_array($result_tasks)) { ?>
                         <tr>
                             <td> <?php echo $row['firstname']; ?></td>
@@ -58,11 +77,11 @@
                             <td> <?php echo $row['phone']; ?></td>
                             <td> <?php echo $row['description']; ?></td>
                             <td>
-                                <a href="edit.php?id=<?php echo $row['id']; ?>" class="btn btn-orange">
+                                <a href="edit.php?id=<?php echo $row['id_remote']; ?>" class="btn btn-warning">
                                     <!--Edit icon-->
                                     <i class="fa fa-pencil"></i>
                                 </a>
-                                <a href="delete.php?id=<?php echo $row['id']; ?>" class="btn btn-danger">
+                                <a href="delete.php?id=<?php echo $row['id']; ?>" class="btn btn-secondary">
                                     <!--Delete icon-->
                                     <i class="fa fa-trash"></i>
                                 </a>
@@ -72,9 +91,6 @@
                 </tbody>
             </table>
         </div>
-
     </div>
-
 </div>
-
 <?php include("includes/footer.php") ?>
