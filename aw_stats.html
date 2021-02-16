@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagine CX CRM</title>
+    <!--Bootsrap4 CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="C:/xampp/htdocs/php_crud_mysql/css/style.css">
+    <!-- FONT AWESOME 5 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-brand p-4">
+
+            <div class="logo">
+                <img src="https://dscbucket.s3-sa-east-1.amazonaws.com/logo_recorte.JPG">
+                <a href="index.php" class="navbar-brand">Imagine-CX Customer Relationships Managment Platform</a>
+
+            </div>
+        </div>
+    </nav>
+    <nav>
+        <div class="topnav">
+
+            <button>
+                <a class="active" href="index.php"><strong>Home </strong><i class="fa fa-home"></i></a>
+
+            </button>
+            <button>
+
+                <a href="contacts.php"><strong>Contacts </strong><i class="fa fa-address-book"></i></a>
+            </button>
+            <button>
+                <a href="create_contact.php"><strong>Contact </strong><i class="fa fa-address-book"></i></a>
+                <button>
+                    <a href="create_customer.php"><strong>Customer </strong><i class="fa fa-user"></i></a>
+                </button>
+                <button>
+                    <a href="about.html"><strong>About </strong><i class="fa fa-info-circle"></i></a>
+                </button>
+                <button>
+                    <a href="logout.php"><strong>Logout</strong><i class="fa fa-info-exit"></i></a></a>
+                </button>
+        </div>
+        </div>
+
+        <style>
+            /* The navbar */
+            .topnav {
+                overflow: hidden;
+                background-color: #333;
+            }
+
+            /* Navbar links */
+            .topnav a {
+                float: left;
+                color: black;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 17px;
+            }
+
+            .topnav a:hover {
+                background-color: #ddd;
+                color: orange;
+            }
+        </style>
+    </nav>
+
+    <div class="container">
+        <div class="card border-primary">
+            <img class="card-img-top" src="holder.js/100px180/" alt="">
+            <div class="card-body">
+                <h5 class="card-title">Awareness</h5>
+        <h6 class="card-subtitle text-muted"></h6>
+        <ul><strong>Tasks progress</strong>
+
+            <li>Social media marketing 
+                    <progress id="prog-smm" value="0" max="100">
+                        <script src="prog_smm.js"></script> 
+                    </progress>
+                <input id="startBtn-smm" type="button" value="start" onclick="startProgress_smm()">
+                            <div id="numValue_smm">0%</div>
+            </li>
+
+            <li>IBlogging
+                <progress id="prog-ib" value="0" max="100">
+                    <script src="prog_ib.js">
+                       
+                    </script>
+                        
+                </progress>
+                
+            
+            <input id="startBtn-ib" type="button" value="start" onclick="startProgress_ib()">
+                        <div id="numValue_ib">0%</div>
+            </li>
+            <li>Cold calls
+                <progress id="prog-cc" value="0" max="100">
+                    <script src="prog_cc.js">
+                      
+                    </script>
+                        
+                </progress>
+                
+            
+            <input id="startBtn-cc" type="button" value="start" onclick="startProgress_cc()">
+                        <div id="numValue_cc">0%</div>
+            </li>
+            <li>Paid search
+                <progress id="prog-ps" value="0" max="100">
+                    <script src="prog_ps.js">
+                      
+                    </script>
+                        
+                </progress>
+                
+            
+            <input id="startBtn-ps" type="button" value="start" onclick="startProgress_ps()">
+                        <div id="numValue_ps">0%</div>
+            </li>
+            <li>Traditional advertising
+                <progress id="prog-ta" value="0" max="100">
+                    <script src="prog_ta.js">
+                      
+                    </script>
+                        
+                </progress>
+                
+            
+            <input id="startBtn-ta" type="button" value="start" onclick="startProgress_ta()">
+                        <div id="numValue_ta">0%</div>
+            </li>
+        </ul>
+            </div>
+        </div>"
+        
+    </div>
+</div>
+</body>
+
+</body>
+
+</html>l
