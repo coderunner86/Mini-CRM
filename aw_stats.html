@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="C:/xampp/htdocs/php_crud_mysql/css/style.css">
     <!-- FONT AWESOME 5 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="http://momentjs.com/downloads/moment.min.js"></script>
 
 </head>
 
@@ -78,9 +79,82 @@
         <div class="card border-primary">
             <img class="card-img-top" src="holder.js/100px180/" alt="">
             <div class="card-body">
+                <div id="myDIV">Finish Date:
+                </div>
+                <div id="myDIV2">Number of days:
+                </div>
+                <span id="hours"><p>Hours to complete: </p></span>  
                 <h5 class="card-title">Awareness</h5>
+
         <h6 class="card-subtitle text-muted"></h6>
         <ul><strong>Tasks progress</strong>
+            
+            <section>
+                
+                    <span id="hours"><p>Hours: </p></span>  
+                   
+                <label for="start">Start date:</label>
+                <text type="date" id="start"  name="trip-start"></text>
+                
+               
+                <input type="number" placeholder="Introduce the end day date" id="myInput">
+                <button type="button" id="getValBtn" onclick="getInputValue();">Set finish date</button>
+                
+                <script>
+                    function getInputValue(){
+                        // Selecting the input element and get its value 
+                        var inputVal = document.getElementById("myInput").value;
+                        
+                        // Displaying the value
+                      console.log(inputVal);
+                      n = new Date();
+                      y = n.getFullYear();
+                      m = n.getMonth() + 1; 
+                      d = n.getDate();
+                       var outputDay = document.getElementById("myInput").innerHTML = inputVal + "/" + m + "/" + y;
+                       var getValBtt = document.getElementById("getValBtn");
+                       getValBtt.disabled=false;
+                    alert('Are you sure to end the task by this day?: '+ outputDay);
+                   
+                    getValBtt.disabled=true;
+                    var para = document.createElement("P");                 // Create a <p> element
+                    para.innerHTML = outputDay;                // Insert text
+                    document.getElementById("myDIV").appendChild(para);  
+                    var res;
+                    res = inputVal -  d;
+                    console.log(res);
+
+                    var para2 = document.createElement("P");                 // Create a <p> element
+                    para2.innerHTML = res;                // Insert text
+                    document.getElementById("myDIV2").appendChild(para2);
+                    
+                    var hoursTo = document.createElement("P");                 // Create a <p> element
+                        hoursTo.innerHTML = res*24;                // Insert text
+                    document.getElementById("hours").appendChild(hoursTo);         
+                  
+}
+                
+                    
+                </script>
+               
+              
+                <script text="javascript"> 
+                 n =  new Date();
+                //Año
+                y = n.getFullYear();
+                //Mes
+                m = n.getMonth()+1;
+                //Día
+                d = n.getDate();
+                //Lo ordenas a gust
+                             
+                document.getElementById("start").innerHTML = d + "/" + m + "/" + y;
+               
+                
+                </script>
+               
+               
+            </section> 
 
             <li>Social media marketing 
                     <progress id="prog-smm" value="0" max="100">
@@ -88,6 +162,7 @@
                     </progress>
                 <input id="startBtn-smm" type="button" value="start" onclick="startProgress_smm()">
                             <div id="numValue_smm">0%</div>
+                           
             </li>
 
             <li>IBlogging
