@@ -18,5 +18,5 @@ A CRM-CRUD simple web app. Developed for the selection process of ImagineCX. Thi
 
 ### Access to web App
 
-http://icxcrmtest.bitnamiapp.com/index.php
+This section will be updated. 
 
