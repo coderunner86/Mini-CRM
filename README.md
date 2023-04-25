@@ -1,5 +1,5 @@
-# icx_asessment
-A CRM-CRUD simple web app. Developed for the selection process of ImagineCX. This repository contains  files and a script to host the application in an EC2 instance through ubuntu server. 
+
+This repository contains  files and a script to host the application in an EC2 instance through ubuntu server. 
 
 
 ### Prerequisites
